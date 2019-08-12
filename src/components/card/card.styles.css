@@ -19,5 +19,8 @@
 .card__image {
   display: block;
   width: auto;
+  max-width: 80%;
+  height: auto;
   margin: 0 auto;
+  object-fit: cover;
 }

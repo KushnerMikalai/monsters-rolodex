@@ -10,7 +10,6 @@ class App extends Component {
       monsters: [],
       searchField: ''
     };
-    this.handleChange = this.handleChange.bind(this);
   }
   componentDidMount() {
     fetch('http://jsonplaceholder.typicode.com/users')
@@ -22,16 +21,15 @@ class App extends Component {
         console.log(err);
       });
   }
-  handleChange(e) {
+  handleChange = e => {
     this.setState({ searchField: e.target.value });
-  }
+  };
   render() {
     const { monsters, searchField } = this.state;
-    const filteredMonsters = monsters.filter(monster =>
-      monster.name.toLowerCase().includes(searchField.toLowerCase())
-    );
+    const filteredMonsters = monsters.filter(monster => monster.name.toLowerCase().includes(searchField.toLowerCase()));
     return (
       <div className='app'>
+        <h1 className={'app__title'}>Monsters rolodex</h1>
         <SearchBox
           handleChange={this.handleChange}
           placeholder={'Search monsters'}
